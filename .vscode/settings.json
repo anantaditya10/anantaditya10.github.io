@@ -1,0 +1,21 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+
+  "workbench.editor.enablePreview": false,
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  "editor.showFoldingControls": "always",
+  "editor.codeLens": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "eslint.alwaysShowStatus": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.autoSave": "off"
+}

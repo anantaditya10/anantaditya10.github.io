@@ -1,0 +1,22 @@
+.navigation {
+  width: 80%;
+  display: flex;
+
+  .navigation-menu {
+    margin-left: auto;
+  }
+  .navigation-menu ul {
+    display: flex;
+    padding: 0;
+  }
+  .navigation-menu li {
+    // removes default disc bullet for li tags and applies margin to left & right side
+    list-style-type: none;
+    margin: 0 10px;
+  }
+  .nav-link {
+    // increases the surface area of the anchor tag to span more than just the anchor text
+    text-decoration: none;
+    color: inherit;
+  }
+}

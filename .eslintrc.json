@@ -1,0 +1,65 @@
+{
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 11,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2020": true,
+    "jest": true
+  },
+  "extends": ["plugin:import/recommended", "prettier"],
+  "plugins": ["react", "jsx-a11y", "react-hooks", "prettier"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "linebreak-style": ["warn", "unix"],
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "no-alert": "error",
+    "no-debugger": "error",
+    "react/forbid-prop-types": [
+      "error",
+      { "forbid": ["any", "array"], "checkContextTypes": true, "checkChildContextTypes": true }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-undef": 0,
+    "no-use-before-define": "off",
+    "no-unused-vars": 0,
+    "no-nested-ternary": 0,
+    "react/button-has-type": 0,
+    "react/display-name": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/prop-types": 0,
+    "max-len": [
+      2,
+      {
+        "code": 120,
+        "comments": 100
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error"
+    //"react-hooks/exhaustive-deps": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}

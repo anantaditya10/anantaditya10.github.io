@@ -1,0 +1,15 @@
+.tile-contanier {
+  display: flex;
+  flex-direction: column;
+  .title {
+    font-size: 30px;
+    margin: auto;
+  }
+  .user-details {
+    margin: 20px;
+  }
+  .seperator {
+    width: 100%;
+    border-width: 0.5px;
+  }
+}

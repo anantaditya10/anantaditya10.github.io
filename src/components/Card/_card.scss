@@ -1,0 +1,18 @@
+@use '../../styles/abstracts/colors' as *;
+.card-contanier {
+  width: 200px;
+  background: $grape-600;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  margin: 10px;
+  .user-details {
+    padding: 20px;
+    .user-expense-info {
+      display: flex;
+    }
+  }
+  h6 {
+    line-height: 1px;
+    padding: 5px;
+  }
+}

@@ -1,0 +1,15 @@
+.modal-container {
+  display: flex;
+  flex-direction: column;
+
+  .invalid-multiselect {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+  }
+  .formsubmit-btn {
+    margin-top: 20px;
+    width: 120px;
+  }
+}

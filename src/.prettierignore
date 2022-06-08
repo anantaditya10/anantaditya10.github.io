@@ -1,0 +1,5 @@
+# Don't pretty the following
+
+coverage
+build
+logs

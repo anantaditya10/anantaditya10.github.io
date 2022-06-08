@@ -1,0 +1,9 @@
+# Don't lint the following
+
+
+coverage
+snapshots
+build
+node_modules
+logs
+public

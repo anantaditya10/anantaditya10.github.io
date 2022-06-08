@@ -1,0 +1,30 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/_variables.scss' as *;
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+@mixin selected-mode($textcolor, $bcg-color, $background-image) {
+  .text {
+    color: $textcolor;
+  }
+  .background {
+    background-color: $bcg-color;
+  }
+  background-image: $background-image;
+}
+.light {
+  @include selected-mode($dark-700, $white-200, $gradiant-light);
+}
+
+.dark {
+  @include selected-mode($white-200, $dark-400, $gradiant-dark);
+}
