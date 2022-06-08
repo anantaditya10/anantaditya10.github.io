@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 
 const MultiSelectDropdown = ({ dropDownList, retriveFriendsInExpense }) => {
@@ -21,5 +22,13 @@ const MultiSelectDropdown = ({ dropDownList, retriveFriendsInExpense }) => {
       />
     </div>
   );
+};
+MultiSelectDropdown.propsTypes = {
+  dropDownList: PropTypes.arrayOf(Object),
+  retriveFriendsInExpense: PropTypes.func,
+};
+MultiSelectDropdown.defaultProps = {
+  dropDownList: [],
+  retriveFriendsInExpense: () => {},
 };
 export default MultiSelectDropdown;

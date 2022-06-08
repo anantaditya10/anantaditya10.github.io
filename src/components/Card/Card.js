@@ -1,6 +1,8 @@
 import './_card.scss';
 import Tooltip from '../ToolTip';
 import { FcInfo } from 'react-icons/fc';
+import PropTypes from 'prop-types';
+
 const Card = ({ expense, userName }) => {
   return (
     <div className="card-contanier">
@@ -17,5 +19,13 @@ const Card = ({ expense, userName }) => {
       </div>
     </div>
   );
+};
+Card.propsTypes = {
+  expense: PropTypes.object,
+  userName: PropTypes.string,
+};
+Card.defaultProps = {
+  expense: {},
+  userName: '',
 };
 export default Card;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './_tile.scss';
 
 const Tile = ({ currentUser }) => {
@@ -11,5 +12,11 @@ const Tile = ({ currentUser }) => {
       <hr className="seperator" />
     </div>
   );
+};
+Tile.propsTypes = {
+  currentUser: PropTypes.object,
+};
+Tile.defaultProps = {
+  currentUser: {},
 };
 export default Tile;

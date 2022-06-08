@@ -31,7 +31,7 @@ const Expense = () => {
     setInput(value);
     setSearchTerm(value);
   };
-  const addFriendToExpence = (e) => {
+  const removeInputOnBackSpace = (e) => {
     const { key } = e;
     if (key === 'Backspace' && input.length === 0 && friendsInExpense.length > 0) {
       e.preventDefault();
@@ -80,7 +80,7 @@ const Expense = () => {
       <CustomInput
         input={input}
         friendsInExpense={friendsInExpense}
-        addFriendToExpence={addFriendToExpence}
+        removeInputOnBackSpace={removeInputOnBackSpace}
         deleteFriend={deleteFriend}
         onCustomInputChange={onCustomInputChange}
       />

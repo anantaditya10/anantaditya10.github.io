@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/button';
+
 import { formValidations } from '../../utils/formValidations';
 import MultiSelectDropdown from '../MultiSelectDropdown/MultiSelectDropdown';
 const AddExpenseForm = ({ friends, handleExpenceFormSubmit }) => {
@@ -130,5 +132,13 @@ const AddExpenseForm = ({ friends, handleExpenceFormSubmit }) => {
       </Button>
     </Form>
   );
+};
+AddExpenseForm.propsTypes = {
+  friends: PropTypes.arrayOf(Object),
+  handleExpenceFormSubmit: PropTypes.func,
+};
+AddExpenseForm.defaultProps = {
+  friends: [],
+  handleExpenceFormSubmit: () => {},
 };
 export default AddExpenseForm;

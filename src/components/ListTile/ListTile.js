@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './_listTile.scss';
 const ListTile = ({ friends, onUserSelectHandle }) => {
   return (
@@ -14,5 +15,13 @@ const ListTile = ({ friends, onUserSelectHandle }) => {
       ))}
     </div>
   );
+};
+ListTile.propsTypes = {
+  friends: PropTypes.arrayOf(Object),
+  onUserSelectHandle: PropTypes.func,
+};
+ListTile.defaultProps = {
+  friends: [],
+  onUserSelectHandle: () => {},
 };
 export default ListTile;

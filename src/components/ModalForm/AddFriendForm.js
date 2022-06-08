@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/button';
-import { formValidations } from '../../utils/formValidations';
+
+import PropTypes from 'prop-types';
 const AddFriendForm = ({ handleFormSubmit }) => {
   const [expenseForm, setExpenseForm] = useState({});
   const [errors, setErrors] = useState({});
@@ -45,5 +46,11 @@ const AddFriendForm = ({ handleFormSubmit }) => {
       </Button>
     </Form>
   );
+};
+AddFriendForm.propsTypes = {
+  handleFormSubmit: PropTypes.func,
+};
+AddFriendForm.defaultProps = {
+  handleFormSubmit: () => {},
 };
 export default AddFriendForm;

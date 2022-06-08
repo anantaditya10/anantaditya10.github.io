@@ -1,5 +1,6 @@
 import Card from '../Card';
 import './_cards.scss';
+import PropTypes from 'prop-types';
 const Cards = ({ expenseList, currentUser }) => {
   return (
     <div className="cards-container">
@@ -20,5 +21,13 @@ const Cards = ({ expenseList, currentUser }) => {
         ))}
     </div>
   );
+};
+Cards.propsTypes = {
+  expenseList: PropTypes.arrayOf(Object),
+  currentUser: PropTypes.object,
+};
+Cards.defaultProps = {
+  expenseList: [],
+  currentUser: {},
 };
 export default Cards;
