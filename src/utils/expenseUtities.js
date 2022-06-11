@@ -18,7 +18,7 @@ const calculateAndAddExpense = (expenseFormObj, listOfFriendToSpiltWith) => {
   const newExpenseObj = {
     expenseId,
     payedBy: userName,
-    amount: spiltedAmount,
+    amount: spiltedAmount.toFixed(1),
     expenseName: expenseFormObj.name,
     description: expenseFormObj.description,
     distribution: 'equal',

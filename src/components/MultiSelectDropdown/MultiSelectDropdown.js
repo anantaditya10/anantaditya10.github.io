@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import Select from 'react-select';
+import './_multiselectdropdown.scss';
 
-const MultiSelectDropdown = ({ dropDownList, retriveFriendsInExpense }) => {
+const MultiSelectDropdown = ({ dropDownList, retriveFriendsInExpense, isAllSelected }) => {
   const optionList = dropDownList.map((d) => ({
     value: d.userId,
     label: d.userName,
@@ -10,9 +11,9 @@ const MultiSelectDropdown = ({ dropDownList, retriveFriendsInExpense }) => {
   }));
 
   return (
-    <div>
+    <div className="multiselect-container">
       <Select
-        defaultValue={optionList}
+        defaultValue={isAllSelected && optionList}
         isMulti
         name="colors"
         options={optionList}
@@ -26,9 +27,11 @@ const MultiSelectDropdown = ({ dropDownList, retriveFriendsInExpense }) => {
 MultiSelectDropdown.propsTypes = {
   dropDownList: PropTypes.arrayOf(Object),
   retriveFriendsInExpense: PropTypes.func,
+  isAllSelected: PropTypes.bool,
 };
 MultiSelectDropdown.defaultProps = {
   dropDownList: [],
   retriveFriendsInExpense: () => {},
+  isAllSelected: true,
 };
 export default MultiSelectDropdown;
