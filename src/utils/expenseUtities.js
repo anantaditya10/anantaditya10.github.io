@@ -8,7 +8,7 @@ const checkIfAddInExpense = (friendsInExpense, user) => {
   );
 };
 
-const calculateAndAddExpense = (expenseFormObj, listOfFriendToSpiltWith) => {
+const calculateAndAddExpense = (expenseFormObj, listOfFriendToSpiltWith, group, isGroupExpense = false) => {
   const allFriendList = localStorageData('GET', 'friendList');
   const spiltedAmount = expenseFormObj.amount / (listOfFriendToSpiltWith.length + 1);
   const expenseId = uuid();
@@ -18,11 +18,13 @@ const calculateAndAddExpense = (expenseFormObj, listOfFriendToSpiltWith) => {
   const newExpenseObj = {
     expenseId,
     payedBy: userName,
-    amount: spiltedAmount,
+    amount: spiltedAmount.toFixed(1),
     expenseName: expenseFormObj.name,
     description: expenseFormObj.description,
     distribution: 'equal',
     date: expenseFormObj.dateOfExpense,
+    isGroupExpense,
+    groupId: group?.groupId,
     users: [
       ...listOfFriendToSpiltWith.map((item) => {
         const { userId, userName } = item;

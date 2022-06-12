@@ -1,5 +1,6 @@
 import { updateUserObjWithExpense } from './userDataService';
 import localStorageData from '../utils/localStorageData';
+const getAllExpense = () => localStorageData('GET', 'expenseList');
 const addExpenseService = (newExpenseObj) => {
   const expenseList = localStorageData('GET', 'expenseList');
   expenseList.push(newExpenseObj);
@@ -7,4 +8,4 @@ const addExpenseService = (newExpenseObj) => {
   localStorageData('SET', 'expenseList', expenseList);
 };
 
-export { addExpenseService };
+export { getAllExpense, addExpenseService };

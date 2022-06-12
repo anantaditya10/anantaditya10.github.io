@@ -17,7 +17,7 @@ const Expense = () => {
   const debouncedSearchTerm = useDebounce(searchTerm, 100);
   const [friendsInExpense, setFriendsInExpense] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [isAddFriendAction, setIsAddFriendAction] = useState(true);
+  const [actionType, setActionType] = useState('addfriend');
 
   useEffect(() => {
     if (debouncedSearchTerm?.length > 0) {
@@ -59,13 +59,13 @@ const Expense = () => {
 
   const closeModal = () => {
     setIsOpen(false);
-    setIsAddFriendAction(true);
+    setActionType('addfriend');
   };
   const onAddExpenseHandler = () => {
     setIsOpen(true);
-    setIsAddFriendAction(false);
+    setActionType('addexpense');
   };
-  const handleFormSubmit = (name) => {
+  const handleAddFriendSubmit = (name) => {
     addNewFriend(name);
     setFriends(getAllFriends());
     setIsOpen(false);
@@ -100,11 +100,14 @@ const Expense = () => {
       {isOpen && (
         <ModalForm
           friends={friendsInExpense}
-          isAddFriendAction={isAddFriendAction}
+          actionType={actionType}
+          modalTitle={actionType === 'addfriend' ? 'Add Friend' : 'Add Expense'}
+          title={actionType === 'addexpense' && 'Expense Name'}
+          isAddExpense={actionType === 'addexpense'}
           closeModal={closeModal}
           isOpen={isOpen}
-          handleFormSubmit={handleFormSubmit}
-          handleExpenceFormSubmit={handleExpenceFormSubmit}
+          handleAddFriendSubmit={handleAddFriendSubmit}
+          handleAddFormSubmit={handleExpenceFormSubmit}
         />
       )}
     </div>
