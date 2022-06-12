@@ -49,7 +49,7 @@ const Group = () => {
       </button>
 
       <div className="accordian-container">
-        <Accordion>
+        <Accordion className="background">
           {groups.map((grp) => (
             <div key={grp.groupId}>
               <Accordion.Item>
@@ -66,7 +66,7 @@ const Group = () => {
                 <Accordion.Body>
                   {grp?.groupMember?.map((item) => (
                     <>
-                      <div key={item.userId} className="member-details">
+                      <div key={item.userId} className="member-details background text">
                         <h4>{item.userName}</h4>
                         {groupExpenses?.length > 0 && (
                           <span>
