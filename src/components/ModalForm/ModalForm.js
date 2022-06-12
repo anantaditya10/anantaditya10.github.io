@@ -10,6 +10,7 @@ const ModalForm = ({
   modalTitle,
   title,
   isAddExpense,
+  isGroupExpense,
   isOpen,
   closeModal,
   handleAddFriendSubmit,
@@ -17,41 +18,41 @@ const ModalForm = ({
   handleAddGroupSubmit,
 }) => {
   const component = () => {
-    let comp;
     switch (actionType) {
       case 'addfriend':
-        comp = <AddFriendForm handleFormSubmit={handleAddFriendSubmit} />;
+        return <AddFriendForm handleFormSubmit={handleAddFriendSubmit} />;
         break;
       case 'addexpense':
-        comp = (
+        return (
           <AddExpenseForm
             title={title}
             isAddExpense={isAddExpense}
             friends={friends}
             handleFormSubmit={handleAddFormSubmit}
+            isAllSelected={true}
+            isGroupExpense={isGroupExpense}
           />
         );
+
         break;
       case 'addgroup':
-        comp = (
+        return (
           <AddGroupForm title={title} friends={friends} handleFormSubmit={handleAddGroupSubmit} isAllSelected={false} />
         );
+
         break;
 
       default:
-        comp = <AddFriendForm handleFormSubmit={handleAddFriendSubmit} />;
+        return <AddFriendForm handleFormSubmit={handleAddFriendSubmit} />;
         break;
     }
-    return comp;
   };
   return (
     <Modal show={isOpen} onHide={closeModal}>
       <Modal.Header closeButton>
         <Modal.Title>{modalTitle}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <component />
-      </Modal.Body>
+      <Modal.Body>{component()}</Modal.Body>
     </Modal>
   );
 };
@@ -66,6 +67,7 @@ ModalForm.propsTypes = {
   modalTitle: PropTypes.string,
   title: PropTypes.string,
   isAddExpense: PropTypes.bool,
+  isGroupExpense: PropTypes.bool,
 };
 ModalForm.defaultProps = {
   friends: [],
@@ -77,5 +79,6 @@ ModalForm.defaultProps = {
   modalTitle: 'Add',
   title: 'Name',
   isAddExpense: false,
+  isGroupExpense: false,
 };
 export default ModalForm;

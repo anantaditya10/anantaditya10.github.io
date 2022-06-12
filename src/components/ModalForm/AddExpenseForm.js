@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/button';
 
 import { formValidations } from '../../utils/formValidations';
 import MultiSelectDropdown from '../MultiSelectDropdown';
-const AddExpenseForm = ({ title, isAddExpense, friends, handleFormSubmit }) => {
+const AddExpenseForm = ({ title, isAddExpense, friends, handleFormSubmit, isAllSelected, isGroupExpense }) => {
   const [expenseForm, setExpenseForm] = useState({});
   const [errors, setErrors] = useState({});
   const [selectedSplitOption, setSelectedSplitOption] = useState('split');
@@ -28,7 +28,7 @@ const AddExpenseForm = ({ title, isAddExpense, friends, handleFormSubmit }) => {
     if (Object.keys(newErrors).length > 0 && isAddExpense) {
       // We got errors!
       setErrors(newErrors);
-    } else if (friendsForSplit.length === 0) {
+    } else if (selectedSplitOption === 'exclude' && friendsForSplit.length === 0) {
       setShowMultiSelectError(true);
     } else {
       // No errors! Put any logic here for the form submission!
@@ -94,7 +94,7 @@ const AddExpenseForm = ({ title, isAddExpense, friends, handleFormSubmit }) => {
           <Form.Control.Feedback type="invalid">{errors.dateOfExpense}</Form.Control.Feedback>
         </Form.Group>{' '}
       </>
-      {friends?.length > 1 && (
+      {!isGroupExpense && friends?.length > 1 ? (
         <>
           <Form.Group>
             <Form.Check
@@ -118,8 +118,10 @@ const AddExpenseForm = ({ title, isAddExpense, friends, handleFormSubmit }) => {
             />
           </Form.Group>
         </>
+      ) : (
+        <i>Amount will be split between all member of group</i>
       )}
-      {friends?.length > 1 && selectedSplitOption === 'exclude' && (
+      {friends?.length > 1 && !isGroupExpense && selectedSplitOption === 'exclude' && (
         <>
           <MultiSelectDropdown
             dropDownList={friends}
@@ -140,11 +142,15 @@ AddExpenseForm.propsTypes = {
   isAddExpense: PropTypes.bool,
   friends: PropTypes.arrayOf(Object),
   handleFormSubmit: PropTypes.func,
+  isAllSelected: PropTypes.bool,
+  isGroupExpense: PropTypes.bool,
 };
 AddExpenseForm.defaultProps = {
   title: 'Name',
   isAddExpense: false,
   friends: [],
   handleFormSubmit: () => {},
+  isAllSelected: true,
+  isGroupExpense: false,
 };
 export default AddExpenseForm;
