@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import AddExpenseForm from './AddExpenseForm';
 import AddFriendForm from './AddFriendForm';
 import Modal from 'react-bootstrap/Modal';
+import { Button } from 'react-bootstrap';
 import './_modal.scss';
 import AddGroupForm from './AddGroupForm';
 const ModalForm = ({
