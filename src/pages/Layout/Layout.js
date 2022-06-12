@@ -14,7 +14,7 @@ function Layout() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addexpense" element={<AddExpense />} />
-        <Route path="/addgroup" element={<AddGroup />} />
+        <Route path="/groups" element={<AddGroup />} />
       </Routes>
     </div>
   );

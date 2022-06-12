@@ -18,7 +18,7 @@ export default function Navbar() {
           </li>
           <li>
             <Link className="nav-link" to="/addgroup">
-              Add Group
+              Groups
             </Link>
           </li>
         </ul>
